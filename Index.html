@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Test</title>
+    <style>
+        body {
+            background-color: #D3AB9F;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Single Day', cursive; /* Replace with your preferred font */
+        }
+
+        #container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .chat-button {
+            background-color: #128C7E;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            margin: 0 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div id="question">Do you love me?</div>
+    <div id="buttons">
+        <button class="chat-button" onclick="teleportNo()">No</button>
+        <a href="file:///C:/Users/USER/AppData/Local/Microsoft/Windows/INetCache/IE/31D27RF0/Yes[1].html" target="_blank" class="chat-button">Yes</a>
+    </div>
+</div>
+
+<script>
+    function teleportNo() {
+        var noButton = document.querySelector('.chat-button');
+        
+        // Convert 6.6cm to pixels (assuming 1cm is approximately 37.8 pixels)
+        var displacementX = Math.random() * (6.6 * 37.8);
+        var displacementY = Math.random() * (6.6 * 37.8);
+
+        var rect = noButton.getBoundingClientRect();
+        var initialX = rect.left + window.scrollX;
+        var initialY = rect.top + window.scrollY;
+
+        var finalX = Math.max(0, Math.min(window.innerWidth - rect.width, initialX + displacementX));
+        var finalY = Math.max(0, Math.min(window.innerHeight - rect.height, initialY + displacementY));
+
+        noButton.style.transform = `translate(${finalX - initialX}px, ${finalY - initialY}px)`;
+    }
+</script>
+
+</body>
+</html>
